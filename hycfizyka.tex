@@ -1,0 +1,193 @@
+\documentclass[svgnames]{report}
+\usepackage[utf8]{inputenc} 
+\usepackage{polski}       
+\usepackage{a4wide}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{bbm}            % sudo apt-get install texlive-fonts-recommended texlive-fonts-extra
+\usepackage{amsthm}
+\usepackage{algorithmic}	% sudo apt-get install texlive-science
+\usepackage{listings}             % Include the listings-package
+\usepackage{framed}
+\usepackage{enumerate}
+
+\makeatletter
+ \renewcommand\@seccntformat[1]{\csname  the#1\endcsname.\quad}
+ 
+ 
+\begin{document}
+\tableofcontents
+
+\chapter{Lista 2}
+\section{zadanie 1}
+\begin{framed}
+Jądro w atomie żelaza ma promień około $4\cdot 10^{-15} m$ i zawiera 26 protonów.
+\begin{description}
+	\item[a)] Jaka jest wartości sily odpychającej siły elektrostatycznej działającęj między dwoma protonami, jeśli znajdują sie one w odleglości $4 \cdot 10^{-15} m$?
+	\item[b)] Jaka jest wartości siły grawitacyjnej działającej między tymi dwoma protonami?
+\end{description}
+\end{framed}
+
+\subsection{a)}
+Dane:
+\begin{enumerate}
+	\item $r = 4 \cdot 10^{-15} m$ 
+	\item $q_1 = q_2 = q_p = +e = 1.6 \cdot 10^{-19} C$ -- ładunek protonu (odczytane z jakieś tabelki)
+	\item $k = 8.99 \cdot 10^9 \frac{N \cdot m^2}{C^2}$
+\end{enumerate}
+Szukane:
+\begin{enumerate}
+	\item $F_o = ?$
+\end{enumerate}
+Rozwiązanie:
+\begin{eqnarray*}
+F_o 	&=& k \cdot \frac{q_1 \cdot q_1}{r^2}	\\
+	&=& k \cdot \frac{q_p^2}{r^2}  	\\
+	&=& 8.99 \cdot 10^9 \frac{N \cdot m^2}{C^2} \cdot \frac{(1.6 \cdot 10^{-19} C)^2}{(4 \cdot 10^{-15} m)^2}	\\
+	& \approx & 14N	\\
+\end{eqnarray*}
+
+
+
+\subsection{b)}
+Dane:
+\begin{enumerate}
+	\item $r = 4\cdot 10^{-15}m $
+	\item $G = 6.67 \cdot 10^{-11} \frac{N \cdot m^2}{kg^2}$
+	\item $m_1 = m_2 = m_p = 1.67 \cdot 10^{-27} kg$ -- wartość powszechnie znana
+\end{enumerate}
+Szukane:
+\begin{enumerate}
+	\item $F_g = ?$
+\end{enumerate}
+Rozwiązanie:
+\begin{eqnarray*}
+F_q	&=& G \cdot \frac{m_1 \cdot m_2}{r^2}	\\
+	&=& G \cdot \frac{m_p^2}{r^2}	\\
+	&=& 6.67 \cdot 10^{-11} \frac{N \cdot m^2}{kg^2} \cdot 10^{-27} kg \cdot \frac{(1.67 \cdot 10^{-27} kg)^2}{(4 \cdot 10^{-15} m)^2}	\\
+	& \approx & 1.2 \cdot 10^{-35N}	\\
+\end{eqnarray*}
+
+\section{zadanie 2}
+\begin{framed}
+	Dwa ładunki punktowe $q_1 = 2.1 \cdot 10^{-8} C$ i $q_2 = -4 \cdot q_1$ znajdują się w odleglości 50m od siebie. Znajdź punkt, w którym natężenie pola elektrycznego równe jest zeru.
+\end{framed}
+Dane:
+\begin{enumerate}
+	\item $q_1 = 2.1 \cdot 10^{-8} C$
+	\item $q_2 = -4 \cdot q_1$
+	\item $l = 50m$ -- odległość między $q_1$ i $q_2$
+\end{enumerate}
+Szukane:
+\begin{enumerate}
+	\item p = ? -- punkt, dla którego natężenie równe jest zeru
+\end{enumerate}
+Rozwiązanie:
+--------------$q_1$<======50m======>$q_2$--------------
+\begin{eqnarray*}
+E = E_1 + E_2 &=& 0	\\
+\frac{F_1}{q} + \frac{F_2}{q} &=& 0 \\
+k \cdot \frac{q_1}{r_1^2}  + k \cdot \frac{q_2}{r_2^2} &=& 0 \ \wedge \ (r_2 = r_1 - 50) \\
+\frac{q_1}{r_1^2} + \frac{-4\cdot q_1}{(r_1 - 50)^2} &=& 0 \\
+q_1 \cdot (r_1 - 50)^2 -4 \cdot q_1 \cdot r_1^2 &=& 0 \\
+-3 \cdot q_1 \cdot r_1^2 - 100 \cdot q_1 \cdot r_1 + 250 &=& 0 \\
+\end{eqnarray*}
+
+\section{zadanie 5}
+\begin{framed}
+Elektrony są bezustannie wybijane z czątek powietrza w atmosferze przez cząstki promieniowania kosmicznego.
+Każdy elektron po uwulnieniu doznaje działania siły elektrostatycznej F, wskutek istnienia pola elektrycznego, wytwarzanego w atmosferze przez naładowane cząstki, znajdujące się już na Ziemi. W pobliżu powierzchni Ziemi natężenie pola elektrycznego ma wartości $E = 150 N/C$ i jest skierowane w dół. Ile wynosi $\Delta E_p$ elektrycznej energii potencjalnej uwolnionego elektornu, gdy siła elektrostatyczna powoduje, że przemieszcza się on pionowo do góry, na odległość $d = 520m$?
+\end{framed}
+Dane:
+\begin{enumerate}
+	\item $E = 150 N/C$
+	\item $d = 520m$
+	\item $q_e = -e = -1.6 \cdot 10^{-19} C$ -- wartość odczytana z tabelki
+\end{enumerate}
+Szukane:
+\begin{enumerate}
+	\item $\Delta E_p = ?$
+\end{enumerate}
+Rozwiązanie:
+\begin{eqnarray*}
+\Delta E_p 	&=& -W	\\
+			&=& -\overrightarrow{F} \cdot \overrightarrow{d}	\\
+			&=& -\overrightarrow{E} \cdot q_e \cdot \overrightarrow{d}	\\
+			&=& -E \cdot q_e \cdot d \cdot \cos{\theta}	\\
+			&=&	-E \cdot q_e \cdot d \cdot \cos{180} \ \ \hbox{ $\theta=180$, gdyż natężenie skierowane jest w dół, a przesunięcie do góry } \\
+			&=& -150 \frac{N}{C} \cdot -1.6 \cdot 10^{-19} C \cdot 520m	\\
+			& \approx & 1.2 \cdot 10^{-14} J
+\end{eqnarray*}
+
+\section{zadanie 7}
+\begin{framed}
+Kondensator płaski, którego pojemność C wynosi $13.5pF$ jest naładowany przez źrodło do różnicy potencjałów między okładkamo $U = 12,5V$.
+Po odłączeniu źródła, między okładki kondensatora wsunięto porcelanową płytę ($\varepsilon_r = 6.5$).
+Jaka jest energia potencjalna układu kondensator-płyta przed wsunięciem płyty i po nim?
+\end{framed}
+Dane:
+\begin{enumerate}
+	\item $C = 13.5pF = 13.5 \cdot 10^{-12}F$
+	\item $U = 12.5V$
+	\item $\varepsilon_r = 6.5$
+\end{enumerate}
+Szukane:
+\begin{enumerate}
+	\item $E_{p1} = ?$	-- energia potencjalna przed wsunięciem
+	\item $E_{p2} = ?$	-- energia potencjalna po wsunięciu
+\end{enumerate}
+Rozwiązanie:
+\begin{eqnarray*}
+E_{p1}	&=&	\frac{C \cdot U^2}{2}	= \frac{q^2}{2 \cdot C}	\\
+		&=&	\frac{13.5 pF \cdot (12.5V)^2}{2}	\\
+		& \approx &	1100 pJ
+\end{eqnarray*}
+
+\begin{eqnarray*}
+E_{p2}	&=& \frac{q^2}{2 \cdot \varepsilon_r \cdot C}	\\
+		&=& \frac{E_{p1}}{\varepsilon_r}	\\
+		& \approx & 160 pJ	\\
+\end{eqnarray*}
+
+\section{zadanie 8}
+\begin{framed}
+Ile wynosi prędkość unoszenia elektronów przewodnictwa w przewodniku o promieniu $r = 900 \mu m$, w którym płynie prąd stały o natężeniu $I = 17 mA$ ?
+Przyjmij, że każdy atom miedzi dostarcza jednego elekronu przewodnictwa, a gęstość prądu jest stała na całym przekroju drutu.
+\end{framed}
+Dane:
+\begin{enumerate}
+	\item $r = 900 \mu m$
+	\item $I = 17 mA$
+	\item $N_A = 6.02 \cdot 10^{12} mol^{-1}$
+	\item $\rho = 8.96 \cdot 10^3 kg/m^3$ -- odczytane z tabelki
+	\item $M = 63.54 \cdot 10^{-3} kg/mol$ -- masa molowa odczytan a z tabelki
+	\item $e = 1.6 \cdot 10^{-19} C$ -- odczytane z tabelki
+\end{enumerate}
+Szukane:
+\begin{enumerate}
+	\item $v_d = ?$ -- prędkość unoszenia
+\end{enumerate}
+Rozwiązanie:
+\begin{eqnarray*}
+v_d 	&=& \frac{J}{n \cdot e}	\\
+		&=&	\frac{I}{n \cdot e \cdot S}	\\
+		&=&	\frac{I}{n \cdot e \cdot \Pi \cdot r^2}	\\
+		& \approx & \frac{17 \cdot 10^{-3} A}{(8.49 \cdot 10^{28} m^{-3}) \cdot (1.6 \cdot 10^{-19} C) \cdot (3.14 \cdot 900 \cdot 10^{-9} m^2)}	\\
+		& \approx & 4.9 \cdot 10^{-7} m/s	\\
+\end{eqnarray*}
+
+\begin{eqnarray*}
+n 	&=&	\hbox{(liczba atomow w jedonostce objetosci)}	\\
+	&=&	\hbox{(liczba atomow w molu)} \cdot \hbox{(liczba moli w jednosctce masy)} \cdot \hbox{(masa na jednostke objetosci)}	\\
+	&=&	N_A \cdot \left( \frac{1}{M} \right) \cdot \rho	\\
+	&=& \frac{(6.02 \cdot 10^{12} mol^{-1}) \cdot (8.96 \cdot 10^3 kg/m^3)}{63.54 \cdot 10^{-3} kg/mol}	\\
+	& \approx & 8.49 \cdot 10^{28} \hbox{elektronow}/m^3	\\
+\end{eqnarray*}
+
+\begin{thebibliography}{99}
+\bibitem{Test} test reference
+\end{thebibliography}
+\end{document}
+
+
+
